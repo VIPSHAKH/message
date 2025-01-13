@@ -1,0 +1,80 @@
+:root {
+  font-size: 1.125rem;
+  --bg0: #FFF;
+  --bg1: rgba(206,206,206,.5);
+  --fg0: #000;
+  --fg1: rgba(0,0,0,.5);
+  --a0: #0076FF;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg0: #000;
+    --bg1: rgba(206,206,206,.125);
+    --fg0: #FFF;
+    --fg1: rgba(206,206,206,.5);
+    --a0: #0076FF;
+  }
+}
+@media (min-width: 600px) { :root { font-size: 1.5rem; } }
+@media (min-width: 900px) { :root { font-size: 1.75rem; } }
+@media (min-width: 1200px) { :root { font-size: 2rem; } }
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  background: var(--bg0);
+  color: var(--fg0);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100dvh;
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+.messages {
+  overflow: auto;
+  width: 100vw;
+  max-height: 100vh;
+  padding: 1rem .9rem;
+}
+.bubble {
+  overflow: hidden;
+  display: inline-block;
+  margin: 0 0 .125rem 0;
+  padding: .5rem .85rem;
+  line-height: 1.25rem;
+  border-radius: 1.25rem;
+  transform-origin: 0 100%;
+  vertical-align: middle;
+  transition: border-radius .25s ease-out .075s;
+}
+.bubble.left.cornered {
+  border-bottom-left-radius: 0;
+}
+.bubble.left {
+  background: var(--bg1);
+}
+.bubble span {
+  display: inline;
+}
+.bubble span.message {
+  opacity: 0;
+  line-height: 1.125;
+}
+.bubble a {
+  color: var(--a0);
+}
+.bubble .loading {
+  position: absolute;
+  white-space: pre;
+  font-size: 1.625rem;
+  line-height: 1rem;
+}
+.bubble .loading b {
+  display: inline-block;
+  color: var(--fg1);
+}
